@@ -169,8 +169,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-07-13 01:07:34" itemprop="dateCreated datePublished" datetime="2023-07-13T01:07:34+08:00">2023-07-13</time>
+              <time title="创建时间：2023-07-13 01:07:34 / 修改时间：23:48:23" itemprop="dateCreated datePublished" datetime="2023-07-13T01:07:34+08:00">2023-07-13</time>
             </span>
 
           
@@ -184,7 +185,189 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="AzurLaneCalculation-Summary"><a href="#AzurLaneCalculation-Summary" class="headerlink" title="AzurLaneCalculation-Summary"></a>AzurLaneCalculation-Summary</h1><p>用于收集碧蓝航线经验计算，升级所需等公式和算法。</p>
+<h3 id="升级所需经验"><a href="#升级所需经验" class="headerlink" title="升级所需经验"></a>升级所需经验</h3><blockquote>
+<p>每一级所需经验对比图象<br><a target="_blank" rel="noopener" href="https://200git.github.io/EXPcalculation.github.io/modified_per_exp.png"><img src="https://200git.github.io/EXPcalculation.github.io/modified_per_exp.png" alt="前一级提升至此级所需经验对比"></a><br>升级所需总经验对比图象<br><a target="_blank" rel="noopener" href="https://200git.github.io/EXPcalculation.github.io/modified_exp.png"><img src="https://200git.github.io/EXPcalculation.github.io/modified_exp.png" alt="升级所需总经验对比"></a><br>其中红色高亮曲线为10.1更新后海上传奇与决战方案舰船（UR、PRY）经验曲线，蓝色高亮曲线为10.1更新后普通舰船（N、R、SR、SSR）经验曲线，而半透明曲线为10.1日更新前舰船经验曲线。</p>
+</blockquote>
+<p>以ExpUtils为基础的HTML版本，可以计算提升等级所需的经验：<br><a target="_blank" rel="noopener" href="https://200git.github.io/EXPcalculation.github.io/">经验计算器</a></p>
+<h2 id="java算法"><a href="#java算法" class="headerlink" title="java算法"></a>java算法</h2><blockquote>
+<p>10月1日更新调整了100-120级的经验算法并添加了125级新节点。已经进行一次逻辑重整，但计算器中的js代码仍是之前的逻辑。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ModifiedExpUtil</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="comment">//10.1更新对这三组数据有影响</span></span><br><span class="line">	<span class="type">int</span> [] minExp=</span><br><span class="line">	&#123;<span class="number">0</span>,<span class="number">4000</span>,<span class="number">8000</span>,<span class="number">11000</span>,</span><br><span class="line">		<span class="number">15000</span>,<span class="number">20000</span>,<span class="number">22000</span>,<span class="number">26000</span>,</span><br><span class="line">		<span class="number">30000</span>,<span class="number">40000</span>,<span class="number">60000</span>,<span class="number">132000</span>,</span><br><span class="line">		<span class="number">50000</span>,<span class="number">65000</span>,<span class="number">95000</span>,<span class="number">145000</span>,<span class="number">220000</span>&#125;;</span><br><span class="line">	<span class="comment">//每个节点的最小经验值</span></span><br><span class="line">	<span class="type">int</span> [] perExp=</span><br><span class="line">	&#123;<span class="number">100</span>,<span class="number">200</span>,<span class="number">300</span>,<span class="number">400</span>,</span><br><span class="line">		<span class="number">500</span>,<span class="number">1000</span>,<span class="number">2000</span>,<span class="number">4000</span>,</span><br><span class="line">		<span class="number">5000</span>,<span class="number">20000</span>,<span class="number">72000</span>,-<span class="number">82000</span>,</span><br><span class="line">		<span class="number">3000</span>,<span class="number">6000</span>,<span class="number">10000</span>,<span class="number">15000</span>,<span class="number">21000</span>&#125;;</span><br><span class="line">	<span class="type">int</span> [] levels=</span><br><span class="line">	&#123;<span class="number">1</span>,<span class="number">41</span>,<span class="number">61</span>,<span class="number">71</span>,</span><br><span class="line">		<span class="number">81</span>,<span class="number">91</span>,<span class="number">93</span>,<span class="number">95</span>,</span><br><span class="line">		<span class="number">96</span>,<span class="number">98</span>,<span class="number">99</span>,<span class="number">100</span>,</span><br><span class="line">		<span class="number">101</span>,<span class="number">106</span>,<span class="number">111</span>,<span class="number">116</span>,<span class="number">121</span>,<span class="number">126</span>&#125;;</span><br><span class="line">	<span class="type">boolean</span> isURorPRY;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">//每两个节点之间的经验增长大小</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ModifiedExpUtil</span><span class="params">(<span class="type">boolean</span> isURorPRY)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//判断是否为海上传奇或决战方案</span></span><br><span class="line">		<span class="built_in">this</span>.isURorPRY=isURorPRY;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getTotal</span><span class="params">(<span class="type">int</span> level)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> formatExp=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=level;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			formatExp+=switchExp(i);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> formatExp;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> <span class="type">int</span> <span class="title function_">switchExp</span><span class="params">(<span class="type">int</span> level)</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> formatExp=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;(levels.length-<span class="number">1</span>);i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(level&gt;=levels[i]&amp;&amp;level&lt;levels[i+<span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> temp=minExp[i]+(level-levels[i])*perExp[i];</span><br><span class="line">				<span class="comment">//10.1更新对此处代码并无影响</span></span><br><span class="line">				formatExp=!isURorPRY?temp:(<span class="type">int</span>)(i&gt;<span class="number">4</span>&amp;&amp;i&lt;=<span class="number">11</span>?temp*<span class="number">1.3</span>:temp*<span class="number">1.2</span>);</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> formatExp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>调用</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ModifiedExpUtil meu=<span class="keyword">new</span> <span class="title class_">ModifiedExpUtil</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">//meu=new ModifiedExpUtil(false);</span></span><br><span class="line"><span class="type">int</span> exp=meu.switchExp(<span class="number">124</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="舰艇演习数据（经验书）"><a href="#舰艇演习数据（经验书）" class="headerlink" title="舰艇演习数据（经验书）"></a>舰艇演习数据（经验书）</h3><table>
+<thead>
+<tr>
+<th>演习数据类型</th>
+<th>提供经验（每单位经验）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>舰艇演习数据T1 <img src="https://200git.github.io/EXPcalculation.github.io/exp_book_T1.jpg" width = "25" height = "25" alt="" align=right /></td>
+<td>3000</td>
+</tr>
+<tr>
+<td>舰艇演习数据T2 <img src="https://200git.github.io/EXPcalculation.github.io/exp_book_T2.jpg" width = "25" height = "25" alt="" align=right /></td>
+<td>15000</td>
+</tr>
+</tbody></table>
+<h3 id="后宅经验加成"><a href="#后宅经验加成" class="headerlink" title="后宅经验加成"></a>后宅经验加成</h3><p>经验的加成和舒适度的关系如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bonus_rate=c_lv/(c_lv+<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<p>其中：<code>bonus_rate</code>是加成的百分比，<code>c_lv</code>是舒适度。</p>
+<h3 id="后宅存粮消耗"><a href="#后宅存粮消耗" class="headerlink" title="后宅存粮消耗"></a>后宅存粮消耗</h3><p>存粮消耗和舰船数有关，有存粮的条件下每<code>15s</code>经验跳动一次，消耗存粮<code>4n</code>（n为同时获得经验舰船数）。<br>这样时间<code>t</code>（每小时）和存粮<code>s</code>（每单位存粮）的关系如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t=s/(<span class="number">4</span>*n)*<span class="number">15</span>/<span class="number">3600</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://200git.github.io/EXPcalculation.github.io/exp_bounce.png"><img src="https://200git.github.io/EXPcalculation.github.io/exp_bounce.png" alt="以驱逐舰为例的经验跳动"></a><br>以驱逐舰为例的经验跳动</p>
+</blockquote>
+<p>根据上边的公式，能得出以下存粮时间关系，<del>方便摸鱼</del>。</p>
+<h4 id="以单艘舰船为基数"><a href="#以单艘舰船为基数" class="headerlink" title="以单艘舰船为基数"></a>以单艘舰船为基数</h4><table>
+<thead>
+<tr>
+<th>存粮（每单位存粮）</th>
+<th>时间（时）</th>
+<th>等价关系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>960</td>
+<td>1</td>
+<td>1船1时</td>
+</tr>
+<tr>
+<td>1920</td>
+<td>2</td>
+<td>2船1时</td>
+</tr>
+<tr>
+<td>2880</td>
+<td>3</td>
+<td>3船1时</td>
+</tr>
+<tr>
+<td>3840</td>
+<td>4</td>
+<td>4船1时</td>
+</tr>
+<tr>
+<td>4800</td>
+<td>5</td>
+<td>5船1时</td>
+</tr>
+<tr>
+<td>5760</td>
+<td>6</td>
+<td>6船1时</td>
+</tr>
+<tr>
+<td>11520</td>
+<td>12</td>
+<td>6船2时</td>
+</tr>
+<tr>
+<td>23040</td>
+<td>24</td>
+<td>6船4时</td>
+</tr>
+<tr>
+<td>34560</td>
+<td>36</td>
+<td>6船6时</td>
+</tr>
+<tr>
+<td>46080</td>
+<td>48</td>
+<td>6船8时</td>
+</tr>
+</tbody></table>
+<h3 id="后宅存粮下限及上限（每单位存粮）"><a href="#后宅存粮下限及上限（每单位存粮）" class="headerlink" title="后宅存粮下限及上限（每单位存粮）"></a>后宅存粮下限及上限（每单位存粮）</h3><p>后宅存粮下限为<code>40000</code>，可供单舰船消耗<code>41.67小时</code>；<br>后宅存粮上限为<code>90000</code>，可供单舰船消耗<code>93.75小时</code>。</p>
+<h3 id="后宅存粮经验加成"><a href="#后宅存粮经验加成" class="headerlink" title="后宅存粮经验加成"></a>后宅存粮经验加成</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>食物量</th>
+<th>经验加成</th>
+<th>加成持续时间（每个）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>酸素可乐</td>
+<td>1000</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>秘制冷却水</td>
+<td>2000</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>鱼雷天妇罗</td>
+<td>3000</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>海军咖喱</td>
+<td>5000</td>
+<td>5%</td>
+<td>1h</td>
+</tr>
+<tr>
+<td>皇家料理</td>
+<td>10000</td>
+<td>10%</td>
+<td>3h</td>
+</tr>
+<tr>
+<td>满汉全席（<del>添加防腐剂</del>）</td>
+<td>20000</td>
+<td>20%</td>
+<td>6h</td>
+</tr>
+</tbody></table>
+<h3 id="经验跳动（每艘船每时）"><a href="#经验跳动（每艘船每时）" class="headerlink" title="经验跳动（每艘船每时）"></a>经验跳动（每艘船每时）</h3><blockquote>
+<p>数据来自[大地母亲再忽悠着你]</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(l_lv*<span class="number">12</span>+<span class="number">240</span>)*(<span class="number">1</span>+bonus_rate)*(<span class="number">1</span>+buff_bonus_rate)*(mag/n);</span><br></pre></td></tr></table></figure>
+<p>其中：<code>l_lv</code>是指挥官等级，<code>bonus_rate</code>是舒适度加成的百分比，<code>buff_bonus_rate</code>是食物buff总和加成的百分比，<code>mag</code>是舰船倍率，<code>n</code>是同时获得经验的舰船数。<br>舰船倍率和后宅舰船数的关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>后宅舰船数</th>
+<th>舰船倍率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.8</td>
+</tr>
+<tr>
+<td>5</td>
+<td>3.2</td>
+</tr>
+<tr>
+<td>6</td>
+<td>3.6</td>
+</tr>
+</tbody></table>
+
       
     </div>
 

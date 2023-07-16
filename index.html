@@ -169,10 +169,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-07-14 19:52:27 / 修改时间：21:31:28" itemprop="dateCreated datePublished" datetime="2023-07-14T19:52:27+08:00">2023-07-14</time>
+              <time title="创建时间：2023-07-14 19:52:27" itemprop="dateCreated datePublished" datetime="2023-07-14T19:52:27+08:00">2023-07-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-16 17:07:56" itemprop="dateModified" datetime="2023-07-16T17:07:56+08:00">2023-07-16</time>
+              </span>
 
           
 
@@ -186,13 +192,17 @@
 
       
           <p>搭建一个属于自己的博客是我一直想做的，以前尝试直接用GitHub Pages搭建，但是单纯访问readme文档都卡的要死，最近发现Hexo搭建的很方便，Cloudflare也能加速访问GitHub Pages，自己在中间踩了很多坑，故写在这里防止其他人走不必要的弯路…</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p>你肯定需要一个平台来承载你的静态网站内容，这里建议用GitHub而不是Gitee，虽然Gitee是国内服务器访问速度快，但是安全性无法保证，当然，你也可以考虑用<code>Gitee+Hexo</code>来构建你的个人网站。</p>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>需要准备的软件</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p>Hexo是一款基于Node.js的静态博客框架，可以方便地生成静态网页挂载在GitHub和Heroku上，是搭建博客的首选框架，这里我们就选用Hexo来搭建。<br>需要准备的软件</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git: https://git-scm.com/</span><br><span class="line">Node.js: http://nodejs.cn/</span><br></pre></td></tr></table></figure>
 <p>准备在本地搭建博客的文件夹中右键选择”Git bash here”，当然在地址栏中键入cmd也是可以的。<br>进入窗口后输入命令：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ npm intstall hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ <span class="built_in">cd</span> blog</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>完成以上工作后访问<code>localhost:4000</code>就能看到已经搭建的本地博客，其中主题为默认主题<code>landscape</code>。<br>你可以通过查询Hexo命令来进行文章发布的操作，也可以通过修改<code>_config.yml</code>来进行设置主题，这些在官网都有提示。以下列举一些基本操作：</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ <span class="variable">%生成网页%</span></span><br><span class="line">$ hexo d</span><br><span class="line">$ <span class="variable">%部署网页%</span></span><br><span class="line">$ hexo server <span class="variable">%或者%</span> hexo s</span><br><span class="line">$ <span class="variable">%部署网页到本地，也就是localhost:4000%</span></span><br><span class="line">$ hexo clean</span><br><span class="line">$ <span class="variable">%清除本地缓存%</span></span><br></pre></td></tr></table></figure>
+<p>完成以上工作后访问<code>http://localhost:4000</code>就能看到已经搭建的本地博客，其中主题为默认主题<code>landscape</code>。<br>你可以通过查询Hexo命令来进行文章发布的操作，也可以通过修改<code>_config.yml</code>来进行设置主题等操作，这些在官网都有相关文档。</p>
+<h3 id="CloudFlare"><a href="#CloudFlare" class="headerlink" title="CloudFlare"></a>CloudFlare</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CloudFlare官网:https://cloudflare.com/</span><br></pre></td></tr></table></figure>
+<p>Cloudflare能提供安全服务和加速代理，所以这里选用Cloudflare加速Github Pages。</p>
+<h4 id="获取Cloudflare账号"><a href="#获取Cloudflare账号" class="headerlink" title="获取Cloudflare账号"></a>获取Cloudflare账号</h4><p>注册即可。</p>
+<p>在Pages界面里绑定Github账号，设置对应库即可，免费版每天boundle访问次数有10w，作为静态网站（如个人博客）再合适不过。</p>
+<h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p>你肯定需要一个平台来承载你的静态网站内容，这里建议用GitHub而不是Gitee，虽然Gitee是国内服务器访问速度快，但是安全性无法保证，当然，你也可以考虑用<code>Gitee+Hexo</code>来构建你的个人网站。</p>
+
       
     </div>
 

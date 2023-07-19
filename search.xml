@@ -5,7 +5,60 @@
     <entry>
       <title><![CDATA[一条二哈给我带来的思考]]></title>
       <url>/2023/07/18/%E4%B8%80%E6%9D%A1%E4%BA%8C%E5%93%88%E7%BB%99%E6%88%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83/</url>
-      <content type="html"><![CDATA[<p>在我高二闲暇之余，偶然在b站的一篇专栏（来自帆雨动画）中发现了一个很有趣的问题，以一只二哈为引题，名字叫</p>
+      <content type="html"><![CDATA[<p>在我高二闲暇之余，偶然在b站的一篇专栏（来自帆雨动画）中发现了一个很有趣的问题，以一只二哈为引题，叫“二哈问题”，很好玩的名字，具体是这么描述的:</p>
+<blockquote>
+<p>…</p>
+</blockquote>
+<blockquote>
+<p>我问：“假期里你没有什么任务吗？”</p>
+<p>他说：“有啊，就是出一个数学和物理结合起来的题目，没想好呢还，你有什么主意吗？”</p>
+<p>这时，他的二哈正叼着个棒球跑了回来，放在主人跟前，等着再一次抛球。</p>
+<p>我说：“求一下二哈轨迹不就行了嘛！”</p>
+<p>“这忒简单了罢，不就直线么，送分也不能这么送的！”</p>
+<p>“你先往前扔出去，等它捡到球了你就往左边跑。”</p>
+<p>二哈叼起球后看见主人在奔跑，显得更欢快了，迅速跑向主人。</p>
+<p>在奔跑过程中，它一直在调整方向，以保持始终朝着主人跑…</p>
+</blockquote>
+<p>追及问题，不过变成二维了，那就很有意思了啊，当时就决定研究这个问题的结果。<br>无奈自己头脑不够，当时并不会熟练运用微积分思想，所以只能程序逼近计算，但是这一前提少不了假想：</p>
+<p>不妨设想追击时间t和人狗速率差有关，且一定成反比，即：</p>
+<p>$$a&#x3D;\frac{k}{v_1-v_2}$$</p>
+<p>以后施工。</p>
+<h2 id="二维轨迹"><a href="#二维轨迹" class="headerlink" title="二维轨迹"></a>二维轨迹</h2><p>让我们回顾一下二哈问题：</p>
+<p><strong>一人一狗在同一位置（近似为一点）人手里有棒球，向前投出，棒球落地狗去捡，当狗捡到棒球瞬间（记当前人狗距离为L，随后人开始垂直于初始点到狗的连线跑（也是往正左或正右跑）速度为 $v_2$ 不变，狗立即追人，速率为 $v_1$，方向时刻指向人（即人狗连线在狗轨迹切线上），且$\vert v_1\vert&gt;\vert v_2\vert$，试问：</strong></p>
+<p><strong>（1）狗追上人的时间 $t$；</strong></p>
+<p><strong>（2）狗的轨迹方程。</strong></p>
+<p>我们来计算第二问：<br>涉及到狗的轨迹方程，我们不妨设狗在某一时刻的坐标为 $(x,y)$，因为任意时刻人都在狗在这一点对其轨迹方程的切线上，故我们不难得出人的位置为 $(0,y-xy’)$。<br>我们从题目中可以知道$\vert v_1\vert&gt;\vert v_2\vert$，故我们设：</p>
+<p>$$v_1&#x3D;nv_2$$</p>
+<p>因为速率不变，故路程也应满足：</p>
+<p>$$s_1&#x3D;ns_2$$</p>
+<p>引入弧微分 $\mathrm{d}s$ ，对于狗走过的路程有：</p>
+<p>$$\int_L^x\sqrt{(\mathrm{d}x)^2+(\mathrm{d}y)^2}\mathrm{d}x&#x3D;n(y-xy’)$$</p>
+<p>两侧对 $x$ 求导得：</p>
+<p>$$sqrt{1+(y’)^2}&#x3D;nxy’’$$</p>
+<p>令 $Y&#x3D;y’&#x3D;\frac{\mathrm{d}y}{\mathrm{d}x}$ ，分离变量整理得：</p>
+<p>$$\frac{\mathrm{d}Y}{\sqrt{1+Y^2}}&#x3D;\frac{\mathrm{d}x}{nx}$$</p>
+<p>两侧积分得：</p>
+<p>$$\ln\vert{Y+\sqrt{1+Y^2}}\vert&#x3D;\frac 1n\ln\vert x\vert$$</p>
+<p>第一步整理，去绝对值：<br>我们先考虑图中的情况，所以原式可化为：</p>
+<p>$$\ln(Y+\sqrt{1+Y^2})&#x3D;\frac 1n\ln x$$</p>
+<p>进一步化为：</p>
+<p>$$Y+\sqrt{1+Y^2}&#x3D;x^{\frac 1n}$$</p>
+<p>最终得到：</p>
+<p>$$Y&#x3D;\pm\left(\frac{C_1}2x^{\frac 1n}-\frac 1{2C_1x^{\frac 1n}}\right)$$</p>
+<p>我们取其中的正值，即：</p>
+<p>$$\frac{\mathrm{d}y}{\mathrm{d}x}&#x3D;\frac{C_1}2 x^{\frac 1n}-\frac 1{2C_1x^{\frac 1n}}$$</p>
+<p>当 $y&#x3D;0$ 时，有 $x&#x3D;L$ ， $\frac{\mathrm{d}y}{\mathrm{d}x}&#x3D;0$ ，带入上式可得出：</p>
+<p>$$ \frac{C_1}2 L^{\frac 1n}&#x3D;\frac 1{2C_1L^{\frac 1n}}$$</p>
+<p>即：</p>
+<p>$$ C_1&#x3D;L^{-\frac 1n}$$</p>
+<p>最终带入原式得：</p>
+<p>$$y&#x3D;\frac{L^{-\frac 1n}}2\left(\frac n{n+1}\right)x^{\frac{n+1}n}-\frac 1{2L^{-\frac 1n}}\left(\frac n{n-1}\right)x^{\frac{n-1}n}+C_2$$</p>
+<p>因为根据初值条件求解 $C_2$ 的结果很麻烦，故这里采取定义并直接带入：</p>
+<p>当 $y&#x3D;0$，$x&#x3D;L$ 时，令 $F(x)&#x3D;\frac{L^{-\frac 1n}}2\left(\frac n{n+1}\right)x^{\frac{n+1}n}-\frac 1{2L^{-\frac 1n}}\left(\frac n{n-1}\right)x^{\frac{n-1}n}+C_2$ ，则有：</p>
+<p>$$C_2&#x3D;-F(b)$$</p>
+<p>故最终的轨迹方程可以表示为：</p>
+<p>$$\begin{cases}<br>F(x)&#x3D;\frac{L^{-\frac 1n}}2\left(\frac n{n+1}\right)x^{\frac{n+1}n}-\frac 1{2L^{-\frac 1n}}\left(\frac n{n-1}\right)x^{\frac{n-1}n}+C_2\<br>\<br>y&#x3D;F(x)-F(b)\<br>\end{cases}(n&gt;1)$$</p>
+<h2 id="三维轨迹"><a href="#三维轨迹" class="headerlink" title="三维轨迹"></a>三维轨迹</h2><p>先不写。</p>
 ]]></content>
       
         

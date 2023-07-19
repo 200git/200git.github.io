@@ -92,8 +92,9 @@ n{n-1}\right)x^{\frac{n-1}n}+C_2\)</span> ，则有：</p>
 <p><span class="math display">\[\begin{cases}
 F(x)=\frac{L^{-\frac 1n}}2\left(\frac n{n+1}\right)x^{\frac{n+1}n}-\frac
 1{2L^{-\frac 1n}}\left(\frac n{n-1}\right)x^{\frac{n-1}n}+C_2\\
+\\
 y=F(x)-F(b)\\
-\end{cases}(n&gt;1)\]</span></p>
+\end{cases}\\\quad (n&gt;1)\]</span></p>
 <h2 id="三维轨迹">三维轨迹</h2>
 <p>先不写。</p>
 ]]></content>

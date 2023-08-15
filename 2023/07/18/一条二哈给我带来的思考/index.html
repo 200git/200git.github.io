@@ -185,6 +185,20 @@
               </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2023/07/18/%E4%B8%80%E6%9D%A1%E4%BA%8C%E5%93%88%E7%BB%99%E6%88%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2023/07/18/一条二哈给我带来的思考/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -319,6 +333,13 @@ y=F(x)-F(b)\\
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -526,6 +547,37 @@ y=F(x)-F(b)\\
     
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://Zeratemi.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://example.com/2023/07/18/%E4%B8%80%E6%9D%A1%E4%BA%8C%E5%93%88%E7%BB%99%E6%88%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83/";
+    this.page.identifier = "2023/07/18/一条二哈给我带来的思考/";
+    this.page.title = "一条二哈给我带来的思考";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://Zeratemi.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>

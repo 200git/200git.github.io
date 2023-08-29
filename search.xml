@@ -3,6 +3,179 @@
   
     
     <entry>
+      <title><![CDATA[Phasmophobia每周挑战数据整理]]></title>
+      <url>/2023/08/30/Phasmophobia%E6%AF%8F%E5%91%A8%E6%8C%91%E6%88%98%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86/</url>
+      <content type="html"><![CDATA[<p>以下数据基于版本v0.9.0.8(The
+Latest)，之后会陆续施工补全相关数据。</p>
+<p><strong>（并且按照线索能推断出每周挑战是按照表格顺序每周轮换）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">黑灯瞎火</td>
+<td style="text-align: left;">准备好蜡烛，无法打开所有灯光！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">肾上腺素成瘾</td>
+<td style="text-align: left;">空气中肯定有坏东西，导致人人疯狂！</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">仅限侦查</td>
+<td
+style="text-align: left;">这只鬼不会给出任何证据，考验你的侦查能力！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">捉迷藏：捉鬼</td>
+<td
+style="text-align: left;">有个非常安静的鬼魂藏在某处，你能找到它吗？</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">躲猫猫：躲藏</td>
+<td style="text-align: left;">这只鬼想玩游戏，最好赶快躲起来！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">刺骨寒温</td>
+<td style="text-align: left;">寒风凛冽，万物肃杀，人鬼皆慢</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">服从命令</td>
+<td
+style="text-align: left;">你必须强迫鬼给出证据，幸好我们找到了一些额外物品来帮助你。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">龟兔赛跑：兔</td>
+<td style="text-align: left;">全力以赴吧，感觉这个鬼特别弱。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">龟兔赛跑：龟</td>
+<td
+style="text-align: left;">上周的工作让你感到些许疲惫，更糟的是，鬼来劲了！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">雷厉风行</td>
+<td style="text-align: left;">无处躲藏，没有理智，即刻出发！</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">理智危机</td>
+<td
+style="text-align: left;">理智匮乏，没有醒脑丸或灯光。需谨慎再三，方能找出恶鬼。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">速通！</td>
+<td
+style="text-align: left;">也许你可以开始计时，看看能多快探明鬼魂类型</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">适者生存</td>
+<td
+style="text-align: left;">没有药丸，没有理智，没有证据，举步维艰！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">原始</td>
+<td
+style="text-align: left;">恐怕所有电子设备都短路了，只能另辟蹊径。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">不堪一击</td>
+<td style="text-align: left;">没有任何防备进行调查，要小心行事。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">货物丢失</td>
+<td
+style="text-align: left;">我们这周未收到全部设备，因此车上可能会缺点东西！</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">17</td>
+<td style="text-align: center;">只有音频</td>
+<td
+style="text-align: left;">我们设法弄到了几个额外的音频设备。你得仔细听听。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">科技狂</td>
+<td
+style="text-align: left;">我们把那些老东西都扔掉了，这份合约与科技有关！</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">无凭无据</td>
+<td
+style="text-align: left;">这些鬼真不想帮你，但我们相信你能胜任这份工作。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">末日将至</td>
+<td style="text-align: left;">最难的挑战，但移速正常。祝你好运。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">徐图缓进</td>
+<td
+style="text-align: left;">这个鬼或许行动迟缓，但它很愤怒。保持警惕！</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">超自然狗仔隊</td>
+<td
+style="text-align: left;">你拥有各种相机、灯光和收音设备。找出鬼魂类型！</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">躲猫猫：极难</td>
+<td style="text-align: left;">这个鬼想玩游戏，你最好快躲起来。</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">暗夜微光</td>
+<td style="text-align: left;">一些设备坏了，希望这个够你看清周围。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">似曾相识</td>
+<td style="text-align: left;">这个鬼是不是很眼熟？</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">找到你了！</td>
+<td style="text-align: left;">这个鬼会立即追赶你，快跑！</td>
+</tr>
+</tbody>
+</table>
+<p>整理：Temi200</p>
+]]></content>
+      
+        
+        <tags>
+            
+            <tag> 游戏 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[一条二哈给我带来的思考]]></title>
       <url>/2023/07/18/%E4%B8%80%E6%9D%A1%E4%BA%8C%E5%93%88%E7%BB%99%E6%88%91%E5%B8%A6%E6%9D%A5%E7%9A%84%E6%80%9D%E8%80%83/</url>
       <content type="html"><![CDATA[<p>在我高二闲暇之余，偶然在b站的一篇专栏（来自帆雨动画）中发现了一个很有趣的问题，以一只二哈为引题，叫“二哈问题”，很好玩的名字，具体是这么描述的:</p>
